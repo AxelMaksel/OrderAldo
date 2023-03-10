@@ -1,4 +1,7 @@
 import openpyxl as op
+import glob
+
+xlx_files = glob.glob('*.xls*')
 
 
 def out_xls(sku_, name_, number_, price_):
@@ -13,9 +16,9 @@ subcategories_dict = {}
 
 wb = op.load_workbook(filename, data_only=True)
 sheet = wb.active
-workbook = op.Workbook()
+out_file = op.Workbook()
 max_rows = sheet.max_row
-sheet2 = workbook.active
+sheet2 = out_file.active
 row_ = 1
 # list[]=[]
 for i in range(13, max_rows + 1):
@@ -30,4 +33,4 @@ for i in range(13, max_rows + 1):
     print(sku, name, number, price)
     row_ += 1
 
-workbook.save('aldo_1c.xlsx')
+out_file.save('aldo_1c.xlsx')
