@@ -1,6 +1,14 @@
 import openpyxl as op
 
-filename = 'Заказ клиента.xlsx'
+
+def out_xls(sku_, name_, number_, price_):
+    sheet2.cell(row=row_, column=1, value=sku_)
+    sheet2.cell(row=row_, column=2, value=name_)
+    sheet2.cell(row=row_, column=3, value=number_)
+    sheet2.cell(row=row_, column=4, value=price_)
+
+
+filename = 'Заказ клиента1.xlsx'
 subcategories_dict = {}
 
 wb = op.load_workbook(filename, data_only=True)
@@ -20,10 +28,6 @@ for i in range(13, max_rows + 1):
         continue
 
     print(sku, name, number, price)
-    sheet2.cell(row=row_, column=1, value=sku)
-    sheet2.cell(row=row_, column=2, value=name)
-    sheet2.cell(row=row_, column=3, value=number)
-    sheet2.cell(row=row_, column=4, value=price)
     row_ += 1
 
 workbook.save('aldo_1c.xlsx')
